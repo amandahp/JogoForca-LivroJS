@@ -19,9 +19,9 @@ function montarTabela() {
 
             linha = tbPalavras.insertRow(-1); //adiciona uma linha na tabela
 
-            col1 = linha.inserCell(0) //cria colunas na linha inserida
-            col2 = linha.inserCell(1)
-            col3 = linha.inserCell(2);
+            col1 = linha.insertCell(0) //cria colunas na linha inserida
+            col2 = linha.insertCell(1)
+            col3 = linha.insertCell(2);
 
             col1.textContent = palavras[i]; //joga um conteúdo em cada célula
             col2.textContent = dicas[i];
@@ -35,8 +35,9 @@ var ckMostrar = document.getElementById("ckMostrar");
 //cria function anônima, associada ao evento change do ckMostrar
 ckMostrar.addEventListener("change", function() {
     if (ckMostrar.checked) { // se marcado...
+        console.log("checked")
         montarTabela(); //exibe tabela (palavras e dicas)
-        btExclui.className = "btn btn-danger exibe"; //exibe o botão excluir
+        btExcluir.className = "btn btn-danger exibe"; //exibe o botão excluir
     } else { //senão...
         location.reload(); //recarrega a página
 
@@ -63,7 +64,7 @@ ckTodos.addEventListener("change", function() {
 function removePalavras() {
     // cria referência à tabela e aos campos input (filhos da tabela)
     var tbPalavras = document.getElementById("tbPalavras");
-    var ckExcluir = tbPalavras.getElementsByTagName("input");
+    var ckExcluir = tbPalavras.getElementByTagName("input");
 
     var temSelecionado = false; // para verificar se há palavras selecionadas
 
@@ -120,5 +121,5 @@ function removePalavras() {
     }
 }
 
-var btExcluir = document.getElementsById("btExcluir");
+var btExcluir = document.getElementById("btExcluir");
 btExcluir.addEventListener("click", removePalavras);

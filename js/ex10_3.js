@@ -1,6 +1,7 @@
 // Programa JS que realiza o cadastro das palavras (utiliza localStorage)
 
 function cadastrarPalavra() {
+    console.log('aqui')
     //cria referência ao elemento de entrada de dados
     var inPalavra = document.getElementById("inPalavra");
     var inDica = document.getElementById("inDica");

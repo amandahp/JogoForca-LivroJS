@@ -4,13 +4,13 @@ var palavraSorteada; //declara variáveis globais
 var dicaSorteada;
 
 //cria referência aos elementos que irão conter eventos associados a functions
-var inLetra = document.getElementsById("inLetra");
-var btJogar = document.getElementsById("btJogar");
-var btVerDica = document.getElementsById("btVerDica");
+var inLetra = document.getElementById("inLetra");
+var btJogar = document.getElementById("btJogar");
+var btVerDica = document.getElementById("btVerDica");
 
 function montarJogo() {
     // cria referência ao local onde a palavra sorteada (letra inicial e _) é exibida
-    var outPalavra = document.getElementsById("outPalavra");
+    var outPalavra = document.getElementById("outPalavra");
 
     //obtém conteúdo do localStorage e separa em elementos de vetor
 
@@ -54,9 +54,9 @@ if (localStorage.getItem("jogoPalavra")) { //se houver palavras cadastradas
 
 function mostrarDica() {
     // cria referência aos elementos da páginca a serem alteradas nesta function
-    var outErros = document.getElementsById("outErros");
-    var outDica = document.getElementsById("outDica");
-    var outChances = document.getElementsById("outChance");
+    var outErros = document.getElementById("outErros");
+    var outDica = document.getElementById("outDica");
+    var outChances = document.getElementById("outChance");
 
     var erros = outErros.textContent; //obtém o conteúdo do elemento outErros
 
@@ -84,15 +84,15 @@ btVerDica.addEventListener("click", mostrarDica);
 
 function trocarStatus(num) {
     if (num > 0) {
-        var imgStatus = document.getElementsById("imgStatus")
+        var imgStatus = document.getElementById("imgStatus")
         imgStatus.src = "img/status" + num + ".jpg"
     }
 }
 
 function jogarLetra() {
-    var outPalavra = document.getElementsById("outPalavra");
-    var outErros = document.getElementsById("outErros");
-    var outChance = document.getElementsById("outChances");
+    var outPalavra = document.getElementById("outPalavra");
+    var outErros = document.getElementById("outErros");
+    var outChance = document.getElementById("outChances");
 
     // obtém conteúdo do campo inLetra e converte-o para maiúscula 
 
@@ -136,7 +136,7 @@ function jogarLetra() {
     } else { //se letra não consta em palavraSorteada
         erros += letra; //acrescenta letra em erros
         outErros.textContent = erros; //exibe os erros
-        var chances = Numbeer(outChances.textContent) - 1; //diminui o nº de chances
+        var chances = Number(outChances.textContent) - 1; //diminui o nº de chances
         outChances.textContent = chances; //exibe o novo n° de chances
 
 
